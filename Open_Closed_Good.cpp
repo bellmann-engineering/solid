@@ -1,4 +1,3 @@
-
 #include <iostream>
 using namespace std;
 
@@ -13,7 +12,7 @@ class Greeter {	//We no longer need to change the Greeter class if we want to ex
 private:
 	Personality personality;
 public:
-	Greeter(Personality personality){
+	Greeter(Personality personality) {
 		this->personality = personality;
 	}
 	string greet(){
@@ -21,27 +20,26 @@ public:
 	}
 };
 
-class CasualPersonality: public Personality {	//If we want to greet more different people we can just add more classes without changing existing ones
+class CasualPersonality : public Personality {	//If we want to greet more different people we can just add more classes without changing existing ones
 public:
 	string greet(){
 		return "Sup Bro?";
 	}
 };
 
-class FormalPersonality: public Personalit { 
+class FormalPersonality : public Personality { 
 public:
-	string greet(){
+	string greet() {
 		return "Good evening sir.";
 	}
 };
 
-class IntimatePersonality: public Personality {
+class IntimatePersonality : public Personality {
 public:
-	string greet(){
+	string greet() {
 		return "Hello Darling!";
 	}
 };
-
 
 
 int main() {

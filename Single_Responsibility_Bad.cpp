@@ -12,8 +12,8 @@ private:
 	float price;
 	float taxRate;
 
-public:		//This method creates the product
-	void Constructor(string title, float price, float taxRate) {
+public:		//This creates the product
+	Product(string title, float price, float taxRate) {
 		this->title = title;
 		this->price = price;
 		this->taxRate = taxRate;

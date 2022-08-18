@@ -1,4 +1,3 @@
-
 #include <iostream>
 using namespace std;
 
@@ -13,7 +12,7 @@ private:
 	float taxRate;
 
 public:
-	void Constructor(string title, float price, float taxRate){
+	Product(const string& title, float price, float taxRate){
 		this->title = title;
 		this->price = price;
 		this->taxRate = taxRate;
@@ -36,7 +35,7 @@ public:
 	}
 };
 
-//If a Class has many responsibilities,
+//If a class has many responsibilities,
 //it increases the possibility of bugs because making changes to one of its responsibilities,
 //could affect the other ones without you knowing.
 
@@ -45,5 +44,11 @@ public:
 
 
 int main() {
+
+	float germanRate = 19.0f;
+	Product tshirt("Hugo Boss Shirt", 19.90f, germanRate);
+	TaxCalculator calculator;
+	cout << calculator.calculateTax(tshirt) << endl;
+
 	return 0;
 }

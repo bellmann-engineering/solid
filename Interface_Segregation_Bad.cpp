@@ -1,4 +1,3 @@
-
 #include <iostream>
 using namespace std;
 
@@ -9,11 +8,11 @@ public:
 
 };
 
-class Eagle:Bird {	//This works for an eagle. it can fly and molt, so it uses every action of the class.
+class Eagle : Bird {	//This works for an eagle. it can fly and molt, so it uses every action of the class.
 public:
 	string currentLocation;
 	int numberOfFeathers;
-	void eagle(int initialFeatherCount) {
+	Eagle(int initialFeatherCount) {
 		numberOfFeathers = initialFeatherCount;
 	}
 	void fly() {
@@ -24,11 +23,11 @@ public:
 	}
 };
 
-class Penguin:Bird{		//But the penguin is not a normal bird
+class Penguin : Bird{		//But the penguin is not a normal bird
 public:
 	string currentLocation;
 	int numberOfFeathers;
-	void penguin(int initialFeatherCount) {
+	Penguin(int initialFeatherCount) {
 		numberOfFeathers = initialFeatherCount;
 	}
 

@@ -13,7 +13,7 @@ public:
 
 };
 
-class EmailClient: public Notifier {
+class EmailClient : public Notifier {
 
 	//We also have one class for the e-mail. But this time it sends the message directly after creating it
 
@@ -25,7 +25,7 @@ public:
 	}
 };
 
-class MobileDevice: public Notifier {
+class MobileDevice : public Notifier {
 
 	//For mobile devices it works the same
 
