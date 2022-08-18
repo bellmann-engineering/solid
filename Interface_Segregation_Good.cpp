@@ -7,17 +7,17 @@ using namespace std;
 
 class featheredCreature{	//instead of a bird class we are using extra classes for feathered creatures
 public:
-	void molt();
+	virtual void molt() = 0;
 };
 
 class flyingCreature{		//for flying creatures
 public:
-	void fly();
+	virtual void fly() = 0;
 };
 
 class swimmingCreature{		//and for swimming creatures
 public:
-	void swim();
+	virtual void swim() = 0;
 };
 
 class eagle:flyingCreature,featheredCreature{	//The eagle only uses what he needs to fulfill its role
