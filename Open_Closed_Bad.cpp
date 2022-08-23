@@ -33,5 +33,9 @@ public:
 };
 
 int main() {
+
+	Greeter g;
+	g.setFormality("casual");
+	g.greet();
 	return 0;
 }

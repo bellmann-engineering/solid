@@ -20,7 +20,7 @@ public:
 	virtual void swim() = 0;
 };
 
-class Eagle : FlyingCreature, FeatheredCreature{	//The eagle only uses what he needs to fulfill its role
+class Eagle : public FlyingCreature, FeatheredCreature{	//The eagle only uses what he needs to fulfill its role
 public:
 	string currentLocation;
 	int numberOfFeathers;
@@ -29,16 +29,16 @@ public:
 		numberOfFeathers = initialNumberOfFeathers;
 	}
 
-	void fly(){
+	void fly() override{
 		currentLocation = "in the air";
 	}
 
-	void molt(){
+	void molt() override{
 		numberOfFeathers -= 1;
 	}
 };
 
-class Penguin : SwimmingCreature,FeatheredCreature {	//And now the same is true for the penguin.
+class Penguin : public SwimmingCreature,FeatheredCreature {	//And now the same is true for the penguin.
 public:
 	string currentLocation;
 	int numberOfFeathers;
@@ -47,11 +47,11 @@ public:
 		numberOfFeathers = initialNumberOfFeathers;
 	}
 
-	void fly(){
+	void swim() override {
 		currentLocation = "in the water";
 	}
 
-	void molt(){
+	void molt() override {
 		numberOfFeathers -= 2;
 	}
 };

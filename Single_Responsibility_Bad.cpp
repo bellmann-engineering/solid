@@ -26,5 +26,7 @@ public:		//This creates the product
 };
 
 int main() {
+	Product tshirt = Product("Hugo Boss", 20.00, 19.00);
+	float taxesForShirt = tshirt.calculateTax();
 	return 0;
 }

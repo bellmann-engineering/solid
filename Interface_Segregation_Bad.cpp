@@ -3,8 +3,8 @@ using namespace std;
 
 class Bird {		//Here we created a class "Bird". It handles everything a bird does.
 public:
-	void fly();
-	void molt();
+	virtual void fly() = 0;
+	virtual void molt() = 0;
 
 };
 
