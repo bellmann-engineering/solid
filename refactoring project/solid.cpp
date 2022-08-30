@@ -9,20 +9,23 @@ Brief Description: Exercise to rework code to satisfy SOLID principles
 using namespace std;
 
 //abstract classes, Shape and Print
-class Shape{
+class Shape
+{
 	public:
 	virtual float getArea() = 0;
 	virtual ~Shape(){}
 };
 
-class Print{
+class Print
+{
 	public:
 	virtual void print(float value) = 0;
 	virtual ~Print(){}
 };
 
 //concrete classes to print different styles using Print class
-class style_A: public Print{
+class style_A: public Print
+{
 	public:
 	~style_A(){}
 	void print(float value){
@@ -30,7 +33,8 @@ class style_A: public Print{
 	}
 };
 
-class style_B: public Print{
+class style_B: public Print
+{
 	public:
 	~style_B(){}
 	void print(float value){
@@ -38,7 +42,8 @@ class style_B: public Print{
 	}
 };
 
-class style_C: public Print{
+class style_C: public Print
+{
 	public:
 	~style_C(){}
 	void print(float value){
@@ -46,7 +51,8 @@ class style_C: public Print{
 	}
 };
 
-class Rectangle: public Shape{
+class Rectangle: public Shape
+{
 	private:
 	float width, height;
 
@@ -59,7 +65,8 @@ class Rectangle: public Shape{
 	}
 };
 
-class Square: public Shape{
+class Square: public Shape
+{
 	private:
 	float width;
 	
@@ -70,7 +77,8 @@ class Square: public Shape{
 	}
 };
 
-class Triangle: public Shape{
+class Triangle: public Shape
+{
 	private:
 	float base, height;
 
@@ -82,7 +90,8 @@ class Triangle: public Shape{
 	}
 };
 
-class Circle: public Shape{
+class Circle: public Shape
+{
 	private:
 	float radius;
 
@@ -95,7 +104,8 @@ class Circle: public Shape{
 };
 
 //container class to take in shape & printing style to print accordingly
-class Box{
+class Box
+{
 	private:
 	Shape* shape;
 	Print* printStyle;
@@ -116,7 +126,8 @@ class Box{
 	}
 };
 
-int main(){
+int main()
+{
 	vector<Box*> boxOfShapes;
 	vector<Box*>::const_iterator it;
 
@@ -140,7 +151,5 @@ A: The area is 50
 B: The given shape has an area of 49
 C: Answer: 25
 A: the area is 50.2655
-sh: pause: command not found
+*/
 
-//system("pause") is only for microsoft compilers aka VS
- */
