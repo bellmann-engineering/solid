@@ -6,7 +6,6 @@ Brief Description: Exercise to rework code to satisfy SOLID principles
 #include <iostream>
 #include <vector>
 
-
 using namespace std;
 
 // abstract classes, Shape and Print
@@ -23,23 +22,23 @@ public:
 };
 
 // concrete classes to print different styles using Print class
-class style_A : public Print {
+class Style_A : public Print {
 public:
-  ~style_A() {}
+  ~Style_A() {}
   void print(float value) { cout << "A: The area is " << value << endl; }
 };
 
-class style_B : public Print {
+class Style_B : public Print {
 public:
-  ~style_B() {}
+  ~Style_B() {}
   void print(float value) {
     cout << "B: The given shape has an area of " << value << endl;
   }
 };
 
-class style_C : public Print {
+class Style_C : public Print {
 public:
-  ~style_C() {}
+  ~Style_C() {}
   void print(float value) { cout << "C: Answer: " << value << endl; }
 };
 
@@ -107,10 +106,10 @@ int main() {
   vector<Box *> boxOfShapes;
   vector<Box *>::const_iterator it;
 
-  boxOfShapes.push_back(new Box(new Rectangle(10.f, 5.f), new style_A));
-  boxOfShapes.push_back(new Box(new Square(7.f), new style_B));
-  boxOfShapes.push_back(new Box(new Triangle(10.f, 5.f), new style_C));
-  boxOfShapes.push_back(new Box(new Circle(4.f), new style_A));
+  boxOfShapes.push_back(new Box(new Rectangle(10.f, 5.f), new Style_A));
+  boxOfShapes.push_back(new Box(new Square(7.f), new Style_B));
+  boxOfShapes.push_back(new Box(new Triangle(10.f, 5.f), new Style_C));
+  boxOfShapes.push_back(new Box(new Circle(4.f), new Style_A));
 
   for (it = boxOfShapes.begin(); it != boxOfShapes.end(); ++it) {
     (*it)->displayShape();
