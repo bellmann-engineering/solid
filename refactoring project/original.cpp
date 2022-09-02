@@ -105,7 +105,7 @@ int main(void)
 	}
 
 	// Extra pause to review the printout
-	// Note: There might be more shapes and styles to add in the future, is this a viable solution?
+	// Note: There might be more shapes and styles to add in the future, is this a good solution?
 	system("pause");
 }
 
