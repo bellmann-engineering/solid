@@ -114,7 +114,4 @@ A: The area is 50
 B: The given shape has an area of 49
 C: Answer: 25
 A: the area is 50.2655
-sh: pause: command not found
-
-//system("pause") is only for microsoft compilers aka VS
- */
+*/
