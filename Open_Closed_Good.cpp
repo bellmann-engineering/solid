@@ -5,7 +5,7 @@ using namespace std;
 
 class Personality {
 public:
-	string greet();
+	virtual string greet() = 0;
 };
 
 class Greeter {	//We no longer need to change the Greeter class if we want to extend our program
@@ -22,21 +22,21 @@ public:
 
 class CasualPersonality : public Personality {	//If we want to greet more different people we can just add more classes without changing existing ones
 public:
-	string greet(){
+	string greet() override {
 		return "Sup Bro?";
 	}
 };
 
 class FormalPersonality : public Personality { 
 public:
-	string greet() {
+	string greet() override {
 		return "Good evening sir.";
 	}
 };
 
 class IntimatePersonality : public Personality {
 public:
-	string greet() {
+	string greet() override {
 		return "Hello Darling!";
 	}
 };
