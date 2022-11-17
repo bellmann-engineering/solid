@@ -31,7 +31,7 @@ public:
 
 class BedroomAdder {	//The BedroomAdder only interacts with Penthouse suite
 public:
-	void addBedroom(PenthouseSuite penthouse) {
+	void addBedroom(PenthouseSuite& penthouse) {
 		penthouse.numberOfBedrooms += 1;
 	}
 };
