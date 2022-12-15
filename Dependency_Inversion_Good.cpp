@@ -1,4 +1,3 @@
-
 #include <iostream>
 using namespace std;
 
@@ -8,7 +7,7 @@ using namespace std;
 class Notifier {
 
 public:
-	virtual void alertWeatherConditions(string weatherConditions) = 0;
+	virtual void alertWeatherConditions(const string& weatherConditions) = 0;
 };
 
 class EmailClient : public Notifier {
@@ -17,7 +16,7 @@ class EmailClient : public Notifier {
 
 
 public:
-	void alertWeatherConditions(string weatherConditions) override {
+	void alertWeatherConditions(const string& weatherConditions) override {
 		if (weatherConditions == "sunny")
 			cout << "It is sunny" << endl;
 	}
@@ -28,7 +27,7 @@ class MobileDevice : public Notifier {
 	//For mobile devices it works the same
 
 public:
-	void alertWeatherConditions(string weatherConditions) override {
+	void alertWeatherConditions(const string& weatherConditions) override {
 		if (weatherConditions == "rainy")
 			cout << "It is rainy" << endl;
 	}
@@ -44,11 +43,11 @@ class WeatherTracker {
 public:
 	string currentConditions;
 
-	void setCurrentConditions(string weatherDescription) {
+	void setCurrentConditions(const string& weatherDescription) {
 		currentConditions = weatherDescription;
 	}
 
-	string notify(Notifier& notifier) {
+	const string& notify(Notifier& notifier) {
 		notifier.alertWeatherConditions(currentConditions);
 		return currentConditions;
 	}
@@ -62,7 +61,6 @@ int main() {
     
     MobileDevice m;
     tracker.notify(m);
-
 
     return 0;
 }
