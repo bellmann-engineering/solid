@@ -1,10 +1,7 @@
-/******************************************************************************
-Brief Description: Exercise to rework code to satisfy SOLID principles
-******************************************************************************/
-#define _USE_MATH_DEFINES
 #include <cmath>
 #include <iostream>
 #include <vector>
+#include <memory>
 
 using namespace std;
 
@@ -95,54 +92,39 @@ public:
 class Box
 {
 private:
-  Shape* shape;
-  Print* printStyle;
+  unique_ptr<Shape> shape;
+  unique_ptr<Print> printStyle;
 
 public:
-  Box(Shape* shape, Print* printStyle) : shape(shape), printStyle(printStyle) {}
-  ~Box()
-  {
-    delete shape;
-    delete printStyle;
-  }
+  Box(unique_ptr<Shape> shape, unique_ptr<Print> printStyle)
+      : shape(std::move(shape)), printStyle(std::move(printStyle)) {}
+  
   void displayShape()
   {
     if (shape != nullptr && printStyle != nullptr)
-      {
-        printStyle->print(shape->getArea());
-      }
+    {
+      printStyle->print(shape->getArea());
+    }
     else
-      {
-        cout << "Failed to display shape(s) with printing style(s)" << endl;
-      }
+    {
+      cout << "Failed to display shape(s) with printing style(s)" << endl;
+    }
   }
 };
 
 int main()
 {
-  vector<Box*> boxOfShapes;
-  vector<Box*>::const_iterator it;
+  vector<unique_ptr<Box>> boxOfShapes;
 
-  boxOfShapes.push_back(new Box(new Rectangle(10.f, 5.f), new Style_A));
-  boxOfShapes.push_back(new Box(new Square(7.f), new Style_B));
-  boxOfShapes.push_back(new Box(new Triangle(10.f, 5.f), new Style_C));
-  boxOfShapes.push_back(new Box(new Circle(4.f), new Style_A));
+  boxOfShapes.push_back(make_unique<Box>(make_unique<Rectangle>(10.f, 5.f), make_unique<Style_A>()));
+  boxOfShapes.push_back(make_unique<Box>(make_unique<Square>(7.f), make_unique<Style_B>()));
+  boxOfShapes.push_back(make_unique<Box>(make_unique<Triangle>(10.f, 5.f), make_unique<Style_C>()));
+  boxOfShapes.push_back(make_unique<Box>(make_unique<Circle>(4.f), make_unique<Style_A>()));
 
-  for (it = boxOfShapes.begin(); it != boxOfShapes.end(); ++it)
-    {
-      (*it)->displayShape();
-    }
+  for (const auto& box : boxOfShapes)
+  {
+    box->displayShape();
+  }
 
-  for (it = boxOfShapes.begin(); it != boxOfShapes.end(); ++it)
-    {
-      delete (*it);
-    }
   return 0;
 }
-
-/*
-A: The area is 50
-B: The given shape has an area of 49
-C: Answer: 25
-A: the area is 50.2655
-*/
