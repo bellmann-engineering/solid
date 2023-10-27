@@ -17,7 +17,7 @@ public:
 			return "Sup bro?";
 		}
 		else if(formality == "intimate"){
-			return"Hello Darling!";
+			return "Hello Darling!";
 		}
 		else {
 			return "Hello.";
