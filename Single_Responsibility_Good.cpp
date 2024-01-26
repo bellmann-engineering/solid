@@ -28,7 +28,7 @@ public:
 };
 
 int main() {
-    float germanRate = 19.0f;
+    float germanRate = 0.19f;
     Product tshirt("Hugo Boss Shirt", 19.90f, germanRate);
     TaxCalculator calculator;
     std::cout << calculator.calculateTax(tshirt) << std::endl;
